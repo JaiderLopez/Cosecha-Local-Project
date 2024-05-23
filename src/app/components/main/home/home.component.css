@@ -8,7 +8,7 @@
 }
 .uno{
    grid-column: span 8;
-   height: 100vh;
+   height: 90vh;
    overflow: auto;
 }
 .dos{
