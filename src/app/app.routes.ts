@@ -8,13 +8,16 @@ import { InvestorsComponent } from './components/main/investors/investors.compon
 
 export const routes: Routes = [
 
-   {path: 'home', component: HomeComponent, title: 'Home'},
+   {path: 'home', component: HomeComponent, title: 'Home',
+      children: [
+         {path: 'buy', component: BuyComponent, title: 'Buy'},
+         {path: 'sell', component: SellComponent, title: 'Sell'},
+         {path: 'investors', component: InvestorsComponent, title: 'Inversores'},
+      ]
+   },
    {path: '', redirectTo: 'home', pathMatch: 'full'},
    {path: 'login', component: LoginComponent, title: 'Login'},
    {path: 'register', component: RegisterComponent, title: 'Register'},
-   {path: 'buy', component: BuyComponent, title: 'Buy'},
-   {path: 'sell', component: SellComponent, title: 'Sell'},
-   {path: 'investors', component: InvestorsComponent, title: 'Inversores'},
    // {path: 'profiles', component: , title: ''},
    // {path: 'profile/:id', component: , title: ''},
 ];

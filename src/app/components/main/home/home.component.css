@@ -1,0 +1,16 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+.container{
+   display: grid;
+   grid-template-columns: repeat(10, 1fr);
+}
+.uno{
+   grid-column: span 8;
+   height: 100vh;
+   overflow: auto;
+}
+.dos{
+   grid-column: span 2;
+}
