@@ -1,63 +1,73 @@
-.body {
-   font-family: Arial, sans-serif;
-   margin: 0;
-   padding: 0;
-   background-color: #f4f4f4;
-   color: #333;
+h1 {
+    font-size: 56px;
+    color: #3d4d10;
+    font-family: "Inter";
 }
 
-header {
-   background-color: var(--black);
-   color: #fff;
-   padding: 20px;
-   text-align: center;
+h2 {
+    font-size: 46px;
+    color: #3d4d10;
+    font-family: "Inter";
 }
 
-.investment-list {
-   padding: 20px;
+h4 {
+    margin-top: 5px;
+    font-size: 24px;
+    color: #3d4d10;
+    font-family: "Inter";
 }
 
-.investment-card {
-   display: flex;
-   align-items: center;
-   background-color: #fff;
-   border: 1px solid #ccc;
-   border-radius: 4px;
-   margin-bottom: 20px;
-   padding: 20px;
-   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+p {
+    font-family: "Inter";
+    font-size: large;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 45px;
+    margin-bottom: 60px;
+    padding-left: 25%;
+    padding-right: 25%;
+    color:#111602;
+}
+  
+#div-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5%;
 }
 
-.investment-image {
-   width: 100px;
-   height: 100px;
-   object-fit: cover;
-   border-radius: 4px;
-   margin-right: 20px;
+#div-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.investment-details {
-   flex: 1;
+#div-3 {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.investment-details h2 {
-   margin: 0;
-   font-size: 1.5em;
+#div-4 {
+    margin-top: 70px;
 }
 
-.investment-details p {
-   margin: 10px 0;
+#div-5 {
+    display: flex;
+    justify-content: space-between;
 }
 
-.investment-details button {
-   padding: 10px 20px;
-   background-color: var(--green);
-   color: #fff;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
+.inversionista {
+    margin: 10px;
+    background-color: rgb(57, 158, 205);
+    width: 350px;
+    height: 400px;
 }
 
-.investment-details button:hover {
-   background-color: #4CAF50;
+.image {
+    width: 100%;
 }
