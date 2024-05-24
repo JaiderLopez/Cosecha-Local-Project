@@ -1,0 +1,63 @@
+.body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #f4f4f4;
+   color: #333;
+}
+
+header {
+   background-color: var(--black);
+   color: #fff;
+   padding: 20px;
+   text-align: center;
+}
+
+.investment-list {
+   padding: 20px;
+}
+
+.investment-card {
+   display: flex;
+   align-items: center;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   margin-bottom: 20px;
+   padding: 20px;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.investment-image {
+   width: 100px;
+   height: 100px;
+   object-fit: cover;
+   border-radius: 4px;
+   margin-right: 20px;
+}
+
+.investment-details {
+   flex: 1;
+}
+
+.investment-details h2 {
+   margin: 0;
+   font-size: 1.5em;
+}
+
+.investment-details p {
+   margin: 10px 0;
+}
+
+.investment-details button {
+   padding: 10px 20px;
+   background-color: var(--green);
+   color: #fff;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+.investment-details button:hover {
+   background-color: #4CAF50;
+}

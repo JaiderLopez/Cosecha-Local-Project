@@ -1,1 +1,19 @@
-<p>sell works!</p>
+<div class="body">
+   <header>
+       <h1>Dashboard de Ventas</h1>
+   </header>
+
+   <div class="dashboard">
+       <nav class="sidebar">
+           <ul>
+               <li><a routerLink="list" data-section="product-list">Lista de Productos Ofertados</a></li>
+               <li><a routerLink="orders" data-section="orders">Pedidos</a></li>
+               <li><a routerLink="new" data-section="sell-product">Vender Nuevo Producto</a></li>
+           </ul>
+       </nav>
+
+       <main class="content">
+         <router-outlet />
+       </main>
+   </div>
+</div>
