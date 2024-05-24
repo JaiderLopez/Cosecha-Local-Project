@@ -1,0 +1,73 @@
+h1 {
+    font-size: 56px;
+    color: #3d4d10;
+    font-family: "Inter";
+}
+
+h2 {
+    font-size: 46px;
+    color: #3d4d10;
+    font-family: "Inter";
+}
+
+h4 {
+    margin-top: 5px;
+    font-size: 24px;
+    color: #3d4d10;
+    font-family: "Inter";
+}
+
+p {
+    font-family: "Inter";
+    font-size: large;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 45px;
+    margin-bottom: 60px;
+    padding-left: 25%;
+    padding-right: 25%;
+    color:#111602;
+}
+  
+#div-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5%;
+}
+
+#div-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#div-3 {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#div-4 {
+    margin-top: 70px;
+}
+
+#div-5 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inversionista {
+    margin: 10px;
+    background-color: rgb(57, 158, 205);
+    width: 350px;
+    height: 400px;
+}
+
+.image {
+    width: 100%;
+}

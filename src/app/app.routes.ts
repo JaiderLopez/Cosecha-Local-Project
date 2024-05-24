@@ -14,7 +14,7 @@ export const routes: Routes = [
       children: [
          {path: 'buy', component: BuyComponent, title: 'Buy'},
          {path: 'sell', component: SellComponent, title: 'Sell'},
-         {path: 'investors', component: InvestorsComponent, title: 'Inversores'},
+         {path: 'investors', component: InvestorsComponent, title: 'Inversionistas'},
          {path: 'profile', component: ProfileComponent, title: 'Profile'},
          {path: 'change-pass', component: ChangePasswordComponent, title: 'New Password'},
       ]
