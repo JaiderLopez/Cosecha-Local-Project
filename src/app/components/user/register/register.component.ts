@@ -26,10 +26,11 @@ export class RegisterComponent {
     this.router.navigate(['/login'], { relativeTo: this.route });
   }
   onSubmit() {
-    this.userService.toRegister(this.applyForm.value)
-      .then(response => {
+    const rawForm = this.applyForm.getRawValue();
+
+    this.userService.toRegister(rawForm.name, rawForm.email, rawForm.password)
+      .subscribe(() => {
         this.router.navigate(['/home/buy'], { relativeTo: this.route });
-      })
-      .catch(error => console.log(error));
+      });
   }
 }

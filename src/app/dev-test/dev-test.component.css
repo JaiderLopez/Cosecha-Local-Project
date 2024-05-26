@@ -1,0 +1,40 @@
+img {
+  height: 30px;
+  width: 30px;
+}
+
+#mine {
+    display: flex;
+    justify-content: right;
+    padding: 15px;
+}
+#mine ul {
+    list-style:none;
+}
+#mine ul a {
+    display: block;
+    font-weight: 400;
+    font-size: 15px;
+}
+#mine ul ul li {
+    background-color: #f3f3f3;
+}
+#mine ul ul li:hover {
+    background-color: #d5d5d5;
+}
+#mine ul ul a {
+  line-height: 120%;
+  padding: 10px 15px;
+}
+
+#mine ul ul {
+  display: none;
+  position: absolute;
+  top: 110px;
+  right: 20px;
+  background: #eee;
+  padding: 0;
+}
+#mine ul li:hover > ul {
+  display: block;
+}

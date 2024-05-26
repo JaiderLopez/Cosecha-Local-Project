@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './shared/nav/nav.component';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,5 @@ import { NavComponent } from './shared/nav/nav.component';
 })
 export class AppComponent {
   // title = 'cosecha_local';
+  
 }
