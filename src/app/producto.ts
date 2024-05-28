@@ -5,5 +5,5 @@ export interface Producto {
     descripcion: string,
     categoria: string,
     inventario: number,
-    imagen: HTMLImageElement
+    imagen: string
 }

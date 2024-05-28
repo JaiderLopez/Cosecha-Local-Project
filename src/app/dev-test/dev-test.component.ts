@@ -5,6 +5,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { TestService } from '../dev-test/test.service';
 import {Place} from '../dev-test/test'
 import { NgFor, NgStyle } from '@angular/common';
+import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
 @Component({
   selector: 'app-dev-test',
@@ -29,12 +30,22 @@ export class DevTestComponent {
     this.testService.getPlaces().subscribe(places => {
       this.places = places;
     })
+
+    
   }
+  
 
   async onSubmit() {
-    /*const response = await this.productoService.addProduct(this.applyForm.value);*/
-    const response = await this.testService.addPlace(this.applyForm.value);
-    console.log(response);
+    const storage = getStorage();
+    getDownloadURL(ref(storage, 'cebolla.PNG'))
+      .then((url) => {
+        // Or inserted into an <img> element
+        const img = document.getElementById('myimg');
+        img.setAttribute('src', url);
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
   }
   async onClickDelete(place: Place) {
     const response = await this.testService.deletePlace(place);

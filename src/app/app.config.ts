@@ -12,6 +12,7 @@ import { getAuth as getAuth_alias, provideAuth } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { getFirestore as getFirestore_alias, provideFirestore } from '@angular/fire/firestore';
 
+
 // Initialize Firebase
 const app = initializeApp(environment.firebase);
 const db = getFirestore(app);
