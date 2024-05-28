@@ -32,18 +32,28 @@
 
 -->
 
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="../../assets/imgs/usericon.png" alt="">
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      @if (userService.currentUserSig() == null) {
-        <li><a class="dropdown-item" href="#">Log in</a></li>
-        <li><a class="dropdown-item" href="#">Register</a></li>
-      }
-      @if (userService.currentUserSig()) {
-        <li><a (click)="logOut()" class="dropdown-item" href="#">LogOut</a></li>
-      }
-    </ul>
+<form [formGroup]="applyForm" (submit)="onSubmit()">
+  <h1 class="title">Iniciar Sesión</h1>
+  <div class="content-input">
+    <input type="text" id="nombre" formControlName="name" placeholder="Nombre" required /><br />
+    <input type="number" id="latitude" formControlName="latitude" placeholder="Longitud" required /><br />
+    <input type="number" id="longitude" formControlName="longitude" placeholder="Latitud"  /><br />
+    <input type="text" id="description" formControlName="description" placeholder="descripcion"  /><br />
+    <input type="text" id="image" formControlName="image" placeholder="imagen" /><br />
   </div>
+  <div class="content-button">
+    <button class="primary" type="submit">Ingresar</button>
+  </div>
+</form>
 
+<div class="places">
+  <div class="place" *ngFor="let place of places">
+      <div class="image" [ngStyle]="{ backgroundImage: 'url('+place.image+')' }"></div>
+      <div class="info">
+          <h4>{{place.name}}</h4>
+          <p>{{place.description}}</p>
+          <p>Coordenadas: {{place.latitude}} / {{place.longitude}}</p>
+          <button class="btn btn-outline-danger" (click)="onClickDelete(place)">Borrar</button>
+      </div>
+  </div>
+</div>

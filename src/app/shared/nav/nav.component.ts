@@ -16,7 +16,7 @@ export class NavComponent {
   userService = inject(UserService);
   router = inject(Router);
   route = inject(ActivatedRoute);
-  
+
   ngOnInit(): void {
     this.userService.user$.subscribe((user) => {
       if (user) {
@@ -33,6 +33,6 @@ export class NavComponent {
 
   logOut(){
     this.userService.toLogOut();
-    this.router.navigate(['/login'], { relativeTo: this.route });
+    this.router.navigate(['/home/landing'], { relativeTo: this.route });
   }
 }

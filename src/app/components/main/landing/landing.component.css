@@ -238,15 +238,3 @@ blockquote p {
 .faq-item:hover p {
    display: block;
 }
-footer {
-   background: #333;
-   color: #fff;
-   text-align: center;
-   padding: 10px 20px;
-}
-
-footer nav a {
-   color: #fff;
-   text-decoration: none;
-   margin: 0 10px;
-}
