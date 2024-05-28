@@ -1,0 +1,28 @@
+.flex-wrap {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.flechita {
+  height: 30px;
+  width: 30px;
+}
+
+.p-4 {
+  width: 90%;
+  height: auto;
+  background-color: #e4e4e4;
+  padding: 8x;
+  border-radius: 4%;
+}
+
+.rounded-lg {
+  border-radius: 20%;
+  padding: auto;
+}
+
+.object-cover {
+  height: 100%;
+  width: 100%;
+}

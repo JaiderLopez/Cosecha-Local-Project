@@ -38,3 +38,31 @@ img {
 #mine ul li:hover > ul {
   display: block;
 }
+
+.flex-wrap {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.flechita {
+  height: 30px;
+  width: 30px;
+}
+
+.p-4 {
+  width: 30%;
+  height: auto;
+  background-color: #ca7b7b;
+  padding: 10px;
+}
+
+.rounded-lg {
+  border-radius: 20%;
+  padding: auto;
+}
+
+.object-cover {
+  height: 100%;
+  width: 100%;
+}
