@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent {
   constructor(private route: ActivatedRoute, private router: Router) { }
+  ngOnInit(): void {
+    document.querySelector('.container').classList.remove('menu-open');
+  }
   goToItems() {
     this.router.navigate(['/home/change-pass'], { relativeTo: this.route });
     console.log("found!");

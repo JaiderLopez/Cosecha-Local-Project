@@ -9,5 +9,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './sell.component.css'
 })
 export class SellComponent {
-
+  ngOnInit(): void {
+    document.querySelector('.container').classList.remove('menu-open');
+  }
 }

@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './buy.component.css'
 })
 export class BuyComponent {
-
+  ngOnInit(): void {
+    document.querySelector('.container').classList.remove('menu-open');
+  }
 }

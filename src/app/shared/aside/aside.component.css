@@ -34,3 +34,9 @@
    background-color: var(--black);
    color: #fff;
 }
+
+@media (max-width: 800px) {
+.options{
+   border: 1px solid #dfdedeeb;
+}
+}

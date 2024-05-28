@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './investors.component.css'
 })
 export class InvestorsComponent {
-
+  ngOnInit(): void {
+    document.querySelector('.container').classList.remove('menu-open');
+  }
 }

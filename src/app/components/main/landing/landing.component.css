@@ -1,5 +1,4 @@
 body {
-   /* font-family: Arial, sans-serif; */
    margin: 0;
    padding: 0;
 }
@@ -13,10 +12,14 @@ header {
    align-items: center;
 }
 
+marquee {
+   width: 100%;
+}
+
+/* Hero section */
 .hero {
    text-align: center;
    padding: 50px 20px;
-   /* background: #f4f4f4; */
    background-image: url("../../../../assets/imgs/hero.avif");
    background-size: cover;
    background-position: center;
@@ -30,16 +33,13 @@ header {
 }
 
 .hero p {
+   background-color: #3333338a;
+   color: #fff;
    margin: 1em auto;
    font-size: 1.2em;
+   border-radius: 10px;
    max-width: 80%;
-}
-
-.hero img {
-   /* max-width: 100%; */
-   /* width: 98%; */
-   height: 200px;
-   object-fit: cover;
+   padding: 10px;
 }
 
 .cta-button {
@@ -53,27 +53,21 @@ header {
    cursor: pointer;
 }
 
-.features,
-.social-proof,
-.product-details,
-.cta-secondary,
-.faq {
+/* Features section */
+.features {
    padding: 20px;
    text-align: center;
 }
 
-.features h2,
-.social-proof h2,
-.product-details h2,
-.cta-secondary h2,
-.faq h2 {
+.features h2 {
    margin-bottom: 20px;
    font-size: 2em;
 }
 
 .feature-item {
    display: inline-block;
-   width: 30%;
+   width: 100%;
+   max-width: 30%;
    margin: 10px;
 }
 
@@ -81,14 +75,40 @@ header {
    max-width: 50px;
    height: auto;
 }
+
 .feature-item p {
    margin: 0 auto;
    width: 50%;
 }
-.product-details p{
+
+/* Social proof section */
+.social-proof {
+   padding: 20px;
+   text-align: center;
+}
+
+.social-proof h2 {
+   margin-bottom: 20px;
+   font-size: 2em;
+}
+
+/* Product details section */
+.product-details {
+   padding: 20px;
+   text-align: center;
+}
+
+.product-details h2 {
+   margin-bottom: 20px;
+   font-size: 2em;
+}
+
+.product-details p {
    margin: 0 auto;
    width: 80%;
 }
+
+/* CTA secondary section */
 .container {
    background-color: #f5f5f5;
    margin: 0;
@@ -160,18 +180,18 @@ button:hover {
    background-color: #45a049;
 }
 
+/* Blockquotes */
 blockquote {
    font-style: italic;
    margin: 20px;
 }
+
 blockquote p {
    width: 45%;
    margin: 0 auto;
 }
-/* .faq-item p{
-   width: 80%;
-   margin: 10px auto 2em auto;
-} */
+
+/* FAQ section */
 .faq {
    max-width: 800px;
    margin: 0 auto;
@@ -238,6 +258,8 @@ blockquote p {
 .faq-item:hover p {
    display: block;
 }
+
+/* Footer styles */
 footer {
    background: #333;
    color: #fff;
@@ -249,4 +271,61 @@ footer nav a {
    color: #fff;
    text-decoration: none;
    margin: 0 10px;
+}
+
+/* Mobile styles */
+@media (max-width: 666px) {
+   .hero {
+      padding: 30px 10px;
+      height: auto;
+   }
+
+   .hero h1 {
+      font-size: 2em;
+   }
+
+   .hero p {
+      font-size: 1em;
+      max-width: 90%;
+   }
+
+   .features .feature-item {
+      width: 100%;
+      max-width: 90%;
+      margin: 10px auto;
+   }
+
+   .feature-item p {
+      width: 80%;
+   }
+
+   blockquote p {
+      width: 90%;
+   }
+
+   .product-details p {
+      width: 90%;
+   }
+
+   .cta-secondary {
+      padding: 10px;
+      max-width: 90%;
+   }
+
+   .faq h2 {
+      font-size: 1.5em;
+   }
+
+   .faq-item h3 {
+      font-size: 1.2em;
+   }
+
+   .faq-item p {
+      font-size: 1em;
+   }
+
+   footer nav a {
+      display: block;
+      margin: 5px 0;
+   }
 }

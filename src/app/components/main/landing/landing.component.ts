@@ -9,6 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LandingComponent {
   constructor(private route: ActivatedRoute, private router: Router) {}
+  ngOnInit(): void {
+    document.querySelector('.container').classList.remove('menu-open');
+  }
   goToItems() {
     this.router.navigate(['/register'], { relativeTo: this.route });
   }

@@ -1,17 +1,10 @@
-/*  */
-
-.content {
-   flex: 1;
-   padding: 20px;
-}
-
-.section {
-   display: none;
+/* .section {
+   display: inline-block;
 }
 
 .section.active {
    display: block;
-}
+} */
 
 table {
    width: 100%;
@@ -27,9 +20,13 @@ th, td {
    padding: 10px;
    text-align: left;
 }
-
+#acciones{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+   gap: 10px;
+}
 button {
-   padding: 10px 20px;
+   padding: 10px 10px;
    background-color: #4CAF50;
    color: #fff;
    border: none;
@@ -57,4 +54,12 @@ form input, form textarea {
 
 form button {
    width: 100%;
+}
+
+
+@media (max-width: 600px) {
+   .section {
+      display: none;
+   }
+   
 }

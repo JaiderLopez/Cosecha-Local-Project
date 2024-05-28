@@ -125,3 +125,9 @@ p {
  .investment-details button:hover {
     background-color: #4CAF50;
  }
+
+ @media (max-width: 800px) {
+    #div-2 p{
+        width: 90%;
+    }
+ }

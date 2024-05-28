@@ -6,93 +6,183 @@
    border: none;
 }
 
-.signup{
-   width: 100%;
-   height: 100vh;
-   background-color: #e9e9e9;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-family: "Inter", sans-serif;
+@media (min-width: 800px) {
+   .signup{
+      width: 100%;
+      height: 100vh;
+      background-color: #e9e9e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Inter", sans-serif;
+   }
+
+   .content-form{
+      width: 60%;
+      height: 75%;
+      display: flex;
+      background-color: #fff;
+   }
+
+   .content-logo{
+      height: 100%;
+      width: 50%;
+   }
+
+   .content-logo img{
+      width: 100%;
+      height: 100%;
+   }
+
+   .form-container{
+      width: 50%;
+      height: 100%;
+      align-items: center;
+   }
+
+   .content-input{
+      width: 90%;
+      margin: auto;
+   }
+
+   .content-input input{
+      width: 100%;
+      height: 8vh;
+      margin-top: 30px;
+      background-color: #e9e9e9;
+      border: none;
+      border-radius: 10px;
+      padding-left: 10px;
+      outline: none;
+   }
+
+   .text{
+      margin-left: 20px;
+      margin-top: 20px;
+   }
+
+   .content-button{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+   }
+
+   .content-button button{
+      width: 80%;
+      background-color: #0f8cb3;
+      height: 8vh;
+      border-radius: 10px;
+      color: #fff;
+      font-family: "Inter", sans-serif;
+      font-size: 17px;
+      transition: .3s ease-in-out;
+   }
+
+   .content-button button:hover{
+      background-color: #11a0cc;
+   }
+
+   .title{
+      text-align: center;
+      margin-top: 10px;
+      color: #a09f9f;
+   }
+
+   a{
+      color: var(--blue);
+      cursor: pointer;
+   }
 }
 
-.content-form{
-   width: 60%;
-   height: 70%;
-   display: flex;
-   background-color: #fff;
-}
-
-
-.content-logo{
-   height: 100%;
-   width: 50%;
-}
-
-.content-logo img{
-   width: 100%;
-   height: 100%;
-}
-
-
-.form-container{
-   width: 50%;
-   height: 100%;
-   align-items: center;
-}
-
-.content-input{
-   width: 90%;
-   margin: auto;
-}
-
-.content-input input{
-   width: 100%;
-   height: 8vh;
-   margin-top: 30px;
-   background-color: #e9e9e9;
-   border: none;
-   border-radius: 10px;
-   padding-left: 10px;
-    outline: none;
-}
-
-.text{
-   margin-left: 20px;
-   margin-top: 20px;
-}
-
-.content-button{
-   width: 100%;
-   height: 13vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-top: 20px;
-}
-
-.content-button button{
-   width: 80%;
-   background-color: #0f8cb3;
-   height:8vh;
-   border-radius: 10px;
-   color: #fff;
-   font-family: "Inter", sans-serif;
-   font-size: 17px;
-   transition:.3s ease-in-out;
-  
-}
-
-.content-button button:hover{
-   background-color: #11a0cc;
-}
-
-.title{
-   text-align: center;
-   margin-top: 10px;
-   color: #a09f9f;
-}
-a{
-   color: var(--blue);
-   cursor: pointer;
+@media (max-width: 800px) {
+   .signup {
+      background-color: #e9e9e9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Inter", sans-serif;
+      padding: 20px;
+   }
+   
+   .content-form {
+      width: 100%;
+      height: unset;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+   }
+   
+   .content-logo {
+      text-align: center;
+      margin-bottom: 20px;
+   }
+   
+   .content-logo img {
+      max-width: 100%;
+      height: auto;
+   }
+   
+   .form-container {
+      width: 100%;
+   }
+   
+   .title {
+      text-align: center;
+      margin-top: 10px;
+      color: #a09f9f;
+   }
+   
+   .content-input {
+      width: 100%;
+      margin-top: 10px;
+   }
+   
+   .content-input input {
+      width: 100%;
+      height: 50px;
+      margin-top: 20px;
+      background-color: #e9e9e9;
+      border-radius: 10px;
+      padding-left: 10px;
+      outline: none;
+   }
+   
+   .text {
+      margin-top: 20px;
+      text-align: center;
+   }
+   
+   .text a {
+      color: #0f8cb3;
+      cursor: pointer;
+   }
+   
+   .content-button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+   }
+   
+   .content-button button {
+      width: 100%;
+      max-width: 400px;
+      background-color: #0f8cb3;
+      height: 50px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 17px;
+      transition: background-color 0.3s ease-in-out;
+   }
+   
+   .content-button button:hover {
+      background-color: #11a0cc;
+   }
 }

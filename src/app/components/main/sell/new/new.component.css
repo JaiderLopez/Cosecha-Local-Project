@@ -50,7 +50,25 @@ form {
    display: flex;
    justify-content: center;
 }
+.form-type {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 15px;
+}
 
+.form-type label {
+   font-weight: bold;
+   margin-bottom: 5px;
+}
+
+.form-type input,
+.form-type select{
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-size: 16px;
+   width: 100%;
+}
 button {
    padding: 10px 20px;
    border: none;
