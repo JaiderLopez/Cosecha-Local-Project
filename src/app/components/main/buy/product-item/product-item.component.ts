@@ -17,19 +17,6 @@ export class ProductItemComponent implements OnInit{
     @Input() producto: Producto | undefined;
     
     ngOnInit(): void {
-        console.log(this.producto);
-        /*const storage = getStorage();
-        getDownloadURL(ref(storage, this.producto.imagen))
-        .then((url) => {
-            // Or inserted into an <img> element
-            const img = document.getElementById('myimg');
-            img.setAttribute('src', url);
-            console.log('imagen puesta');
-            console.log(url);
-        })
-        .catch((error) => {
-            console.error(error);
-        });*/
         
     }
 }
