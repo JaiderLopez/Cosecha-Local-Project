@@ -11,7 +11,8 @@ import { ChangePasswordComponent } from './shared/change-password/change-passwor
 import { ListComponent } from './components/main/sell/list/list.component';
 import { OrdersComponent } from './components/main/sell/orders/orders.component';
 import { NewComponent } from './components/main/sell/new/new.component';
-
+import { DevTestComponent } from './dev-test/dev-test.component';
+/*import { canActive, redirectUnauthorizedTo }*/
 export const routes: Routes = [
 
    {path: 'home', component: HomeComponent, title: 'Home',
@@ -35,6 +36,7 @@ export const routes: Routes = [
    {path: '', redirectTo: 'home/landing', pathMatch: 'full'},
    {path: 'login', component: LoginComponent, title: 'Login'},
    {path: 'register', component: RegisterComponent, title: 'Register'},
+   {path: 'test', component: DevTestComponent, title: 'testing'},
    // {path: 'profiles', component: , title: ''},
    // {path: 'profile/:id', component: , title: ''},
 ];

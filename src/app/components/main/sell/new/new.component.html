@@ -1,17 +1,30 @@
 <div class="body">
     <div class="form-container">
-        <form>
+        <form [formGroup]="applyForm" (submit)="onSubmit()" class="form-container">
             <div class="form-group">
                 <label for="product-name">Nombre del Producto:</label>
-                <input type="text" id="product-name" name="product-name" required>
+                <input type="text" id="product-name" formControlName="nombre" required>
             </div>
             <div class="form-group">
                 <label for="product-description">Descripción del Producto:</label>
-                <textarea id="product-description" name="product-description" required></textarea>
+                <textarea id="product-description" formControlName="descripcion" required></textarea>
             </div>
             <div class="form-group">
                 <label for="product-price">Precio:</label>
-                <input type="number" id="product-price" name="product-price" required>
+                <input type="number" id="product-price" formControlName="precio" required>
+            </div>
+            <div class="form-group">
+                <label for="product-price">Inventario:</label>
+                <input type="number" id="product-price" formControlName="inventario" required>
+            </div>
+            <div class="form-group">
+                <label for="product-price">Categoria:</label>
+                <input type="text" matInput formControlName="categoria" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                @for (option of filteredOptions | async; track option) {
+                    <mat-option [value]="option">{{option.name}}</mat-option>
+                }
+                </mat-autocomplete>
             </div>
             <div class="form-type">
                 <label for="gender">Tipo Producto *</label>
@@ -26,10 +39,15 @@
              </div>
             <div class="form-group">
                 <label for="product-images">Añadir Imágenes:</label>
-                <input type="file" id="product-images" name="product-images" accept="image/*" multiple>
+                <input type="file" id="product-images" formControlName="imagen" accept=".jpg,.png" (change)="capturar($event)">
+                <ng-container *ngIf="uploadSuccess" class="success">
+                    <p class="sucess">Upload Successful</p>
+                </ng-container>
             </div>
             <div class="form-actions">
-                <button type="submit">Vender Producto</button>
+                <button [disabled]="loading" class="primary" type="submit">
+                    {{(loading) ? 'Cargando...' : 'Vender Producto'}}
+                </button>
             </div>
         </form>
     </div>

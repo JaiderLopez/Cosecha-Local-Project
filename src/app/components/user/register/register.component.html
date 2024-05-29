@@ -3,16 +3,16 @@
        <div class="content-logo">
            <img src="../../../../assets/imgs/COSECHA LOCAL (1).png" alt="">
        </div>
-       <form action="" class="form-container">
+       <form [formGroup]="applyForm" (submit)="onSubmit()" class="form-container">
            <h1 class="title">Registrarse</h1>
            <div class="content-input">
-               <input type="text" placeholder="Nombre de Usuario"><br>
-               <input type="email" placeholder="Correo"><br>
-               <input type="password" placeholder="Contraseña"><br>
+               <input id="name" type="text" formControlName="name" placeholder="Nombre de Usuario"><br>
+               <input id="email" type="email" formControlName="email" placeholder="Correo"><br>
+               <input id="password" type="password" formControlName="password" placeholder="Contraseña"><br>
            </div>
            <p class="text">Ya tienes cuenta? <a (click)="goToItems()">Iniciar Sesión</a></p>
            <div class="content-button">
-               <button>Registrarse</button>
+                <button class="primary" type="submit">Registrarse</button>
            </div>
        </form>
    </div>

@@ -259,7 +259,7 @@ blockquote p {
    display: block;
 }
 
-/* Footer styles */
+/* Footer styles 
 footer {
    background: #333;
    color: #fff;
@@ -272,7 +272,7 @@ footer nav a {
    text-decoration: none;
    margin: 0 10px;
 }
-
+*/
 /* Mobile styles */
 @media (max-width: 666px) {
    .hero {

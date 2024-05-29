@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "tuberculos"
+    },
+    {
+        "id": 2,
+        "name": "frutas"
+    },
+    {
+        "id": 3,
+        "name": "huevos"
+    },
+    {
+        "id": 4,
+        "name": "verduras"
+    },
+    {
+        "id": 5,
+        "name": "vegetales"
+    },
+    {
+        "id": 6,
+        "name": "lacteos"
+    },
+    {
+        "id": 7,
+        "name": "hortalizas"
+    },
+    {
+        "id": 8,
+        "name": "semillas"
+    }
+]

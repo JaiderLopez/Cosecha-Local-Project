@@ -4,15 +4,15 @@
            <img src="../../../../assets/imgs/COSECHA LOCAL (1).png" alt="">
        </div>
 
-       <form action="" class="form-container">
+       <form [formGroup]="applyForm" (submit)="onSubmit()" class="form-container">
            <h1 class="title">Iniciar Sesión</h1>
            <div class="content-input">
-               <input type="email" id="email" placeholder="Correo" required><br>
-               <input type="password" id="password" placeholder="Contraseña" required><br>
+               <input type="email" id="email" formControlName="email" placeholder="Correo" required><br>
+               <input type="password" id="password" formControlName="password" placeholder="Contraseña" required><br>
            </div>
            <p class="text">No tienes cuenta? <a (click)="goToItems()">Registrarse</a></p>
            <div class="content-button">
-               <button onclick="validate()">Iniciar Sesión</button>
+               <button class="primary" type="submit">Iniciar Sesión</button>
            </div>
        </form>
    </div>
