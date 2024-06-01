@@ -4,6 +4,7 @@ import { LoginComponent } from '../login/login.component';
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { EmailAuthCredential } from 'firebase/auth';
 
 
 @Component({

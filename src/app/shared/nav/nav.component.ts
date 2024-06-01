@@ -23,6 +23,8 @@ export class NavComponent {
         this.userService.currentUserSig.set({
           email: user.email!,
           username: user.displayName!,
+          telefono: user.phoneNumber!,
+          id: user.uid!
         });
       } else {
         this.userService.currentUserSig.set(null);

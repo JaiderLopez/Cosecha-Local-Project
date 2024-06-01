@@ -9,27 +9,28 @@
    <div class="profile-details">
       <div class="profile-row">
          <label for="name">Nombre *</label>
-         <input type="text" id="name" required>
+         <input type="text" id="name" placeholder="" required>
+        
       </div>
       <div class="profile-row">
          <label for="email">Correo *</label>
-         <input type="email" id="email" required>
+         <input type="email" id="email" placeholder="" required>
       </div>
       <div class="profile-row">
          <label for="phone">Teléfono *</label>
-         <input type="tel" id="phone" required>
+         <input type="tel" id="phone" placeholder="" required>
       </div>
       <div class="profile-row">
          <label for="address">Dirección *</label>
-         <input type="text" id="address" required>
+         <input type="text" id="address" placeholder="" required>
       </div>
       <div class="profile-row">
          <label for="gender">Sexo *</label>
          <select id="gender" required>
-            <option value="">Seleccione</option>
-            <option value="male">Masculino</option>
-            <option value="female">Femenino</option>
-            <option value="other">Otro</option>
+            <option id="op" value="" >Seleccione</option>
+            <option id="opmale" value="male">Masculino</option>
+            <option id="opfemale" value="female">Femenino</option>
+            <option id="opother" value="other">Otro</option>
          </select>
       </div>
       <div class="profile-row">
@@ -42,7 +43,7 @@
       </div>
    </div>
    <div class="profile-actions">
-      <button class="btn update-profile">Actualizar Perfil</button>
+      <button class="btn update-profile" (click)="updateUser()">Actualizar Perfil</button>
       <button class="btn change-password" (click)="goToItems()">Cambiar Contraseña</button>
    </div>
 </div>
