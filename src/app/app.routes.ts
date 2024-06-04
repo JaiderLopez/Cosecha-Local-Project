@@ -12,14 +12,14 @@ import { ListComponent } from './components/main/sell/list/list.component';
 import { OrdersComponent } from './components/main/sell/orders/orders.component';
 import { NewComponent } from './components/main/sell/new/new.component';
 import { DevTestComponent } from './dev-test/dev-test.component';
-/*import { canActive, redirectUnauthorizedTo }*/
+import { authGuard } from './guards/auth.guard';
 export const routes: Routes = [
 
    {path: 'home', component: HomeComponent, title: 'Home',
       children: [
          {path: 'landing', component: LandingComponent, title: 'Landing Page'},
          {path: 'buy', component: BuyComponent, title: 'Buy'},
-         {path: 'sell', component: SellComponent, title: 'Sell', 
+         {path: 'sell', component: SellComponent, title: 'Sell', canActivate: [authGuard], 
          children: [
             {path: 'list', component: ListComponent, title: 'List'}, 
             {path: 'orders', component: OrdersComponent, title: 'Orders'}, 
@@ -27,8 +27,8 @@ export const routes: Routes = [
             ]
          },
          {path: 'investors', component: InvestorsComponent, title: 'Inversores'},
-         {path: 'profile', component: ProfileComponent, title: 'Profile'},
-         {path: 'change-pass', component: ChangePasswordComponent, title: 'New Password'},
+         {path: 'profile', component: ProfileComponent, title: 'Profile', canActivate: [authGuard]},
+         {path: 'change-pass', component: ChangePasswordComponent, title: 'New Password', canActivate: [authGuard]},
          {path: 'home', redirectTo: 'home/landing', pathMatch: 'full'},
          {path: '', redirectTo: 'home/landing', pathMatch: 'full'},
       ]

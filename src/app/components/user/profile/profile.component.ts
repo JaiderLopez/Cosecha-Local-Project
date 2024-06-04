@@ -103,7 +103,7 @@ export class ProfileComponent {
       }
     }
     
-    //location.reload();
+    location.reload();
   }
   
   capturar(event): any{

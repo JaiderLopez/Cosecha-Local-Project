@@ -12,7 +12,7 @@
             <input type="file" id="profile-picture-input" formControlName="photo" accept=".jpg,.png,.jpeg" (change)="capturar($event)">
 
             <ng-container *ngIf="uploadSuccess" class="success">
-               <p class="sucess">Upload Successful</p>
+               <p id="success" class="sucess">Upload Successful!</p>
            </ng-container>
          </div>
          
@@ -52,7 +52,9 @@
             </div>
          </div>
          <div class="profile-actions">
-            <button class="primary btn update-profile" type="submit">Actualizar Perfil</button>
+            <button [disabled]="loading" class="primary btn update-profile" type="submit">
+               {{(loading) ? 'Cargando...' : 'Actualizar Perfil'}}
+            </button>
             <button class="btn change-password" (click)="goToItems()">Cambiar Contraseña</button>
          </div>
       </form>

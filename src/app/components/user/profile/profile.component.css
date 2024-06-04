@@ -131,3 +131,9 @@
 .emcontent .btn-cerrar button {
    padding: 7px 10px;
 }
+
+#success {
+   margin-top: 15px;
+   color: #024605;
+   font-size: larger;
+}
