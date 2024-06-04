@@ -24,7 +24,7 @@ export class NavComponent {
           email: user.email!,
           username: user.displayName!,
           telefono: user.phoneNumber!,
-          id: user.uid!
+          ID: user.uid!
         });
       } else {
         this.userService.currentUserSig.set(null);

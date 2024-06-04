@@ -69,7 +69,6 @@ export class NewComponent implements OnInit {
   }
 
   onSubmit() {
-    const rawForm = this.applyForm.getRawValue();
     const form = this.applyForm.value;
     const storage = getStorage();
     const id = uuid.v4();

@@ -1,50 +1,71 @@
 <div class="body">
-<div class="profile-container">
-   <div class="profile-header">
-      <input type="file" id="profile-picture-input" accept="image/jpeg" style="display: none;">
-      <!-- <label for="profile-picture-input"> -->
-          <img src="profile-picture.jpg" alt="Foto de Perfil" class="profile-picture" id="profile-picture">
-      <!-- </label> -->
-  </div>
-   <div class="profile-details">
-      <div class="profile-row">
-         <label for="name">Nombre *</label>
-         <input type="text" id="name" placeholder="" required>
-        
-      </div>
-      <div class="profile-row">
-         <label for="email">Correo *</label>
-         <input type="email" id="email" placeholder="" required>
-      </div>
-      <div class="profile-row">
-         <label for="phone">Teléfono *</label>
-         <input type="tel" id="phone" placeholder="" required>
-      </div>
-      <div class="profile-row">
-         <label for="address">Dirección *</label>
-         <input type="text" id="address" placeholder="" required>
-      </div>
-      <div class="profile-row">
-         <label for="gender">Sexo *</label>
-         <select id="gender" required>
-            <option id="op" value="" >Seleccione</option>
-            <option id="opmale" value="male">Masculino</option>
-            <option id="opfemale" value="female">Femenino</option>
-            <option id="opother" value="other">Otro</option>
-         </select>
-      </div>
-      <div class="profile-row">
-         <label for="birthdate">Fecha de Nacimiento *</label>
-         <input type="date" id="birthdate" required>
-      </div>
-      <div class="profile-row">
-         <label for="other-info">Otra Información</label>
-         <textarea id="other-info"></textarea>
-      </div>
-   </div>
-   <div class="profile-actions">
-      <button class="btn update-profile" (click)="updateUser()">Actualizar Perfil</button>
-      <button class="btn change-password" (click)="goToItems()">Cambiar Contraseña</button>
+   <div class="profile-container">
+      <form [formGroup]="applyForm" (submit)="updateUser()">
+
+
+         <div class="profile-header">
+            
+            <img src="../../../../assets/imgs/papa.PNG" alt="Foto de Perfil" class="profile-picture" id="profile-picture">
+         </div>
+         <div style="display: flex;  flex-direction: column; margin: 25px 0px;">
+            <label for="">Cambiar foto</label>
+            <input type="file" id="profile-picture-input" formControlName="photo" accept=".jpg,.png,.jpeg" (change)="capturar($event)">
+
+            <ng-container *ngIf="uploadSuccess" class="success">
+               <p class="sucess">Upload Successful</p>
+           </ng-container>
+         </div>
+         
+         <div class="profile-details">
+            <div class="profile-row">
+               <label for="name">Nombre *</label>
+               <input type="text" id="name" formControlName="name" placeholder="" required>
+            </div>
+            <div class="profile-row">
+               <label for="email">Correo *</label>
+               <input type="email" id="email" formControlName="email" placeholder="" (change)="capturaremail($event)" required>
+            </div>
+            <div class="profile-row">
+               <label for="phone">Teléfono *</label>
+               <input type="tel" id="phone" formControlName="phone" placeholder="" required>
+            </div>
+            <div class="profile-row">
+               <label for="address">Dirección *</label>
+               <input type="text" id="address" formControlName="address" placeholder="" required>
+            </div>
+            <div class="profile-row">
+               <label for="gender">Sexo *</label>
+               <select id="gender" formControlName="sex" required>
+                  <option id="op" value="">Seleccione</option>
+                  <option id="opmale" value="Masculino">Masculino</option>
+                  <option id="opfemale" value="Femenino">Femenino</option>
+                  <option id="opother" value="Otro">Otro</option>
+               </select>
+            </div>
+            <div class="profile-row">
+               <label for="birthdate">Fecha de Nacimiento *</label>
+               <input input type="date" value="2013-01-08" id="birthdate" formControlName="birthdate" required>
+            </div>
+            <div class="profile-row">
+               <label for="other-info">Otra Información</label>
+               <textarea id="other-info" formControlName="info"></textarea>
+            </div>
+         </div>
+         <div class="profile-actions">
+            <button class="primary btn update-profile" type="submit">Actualizar Perfil</button>
+            <button class="btn change-password" (click)="goToItems()">Cambiar Contraseña</button>
+         </div>
+      </form>
    </div>
 </div>
+<div class="emcontainer" id="emergente">
+   <form [formGroup]="newForm" (submit)="cambiarContrasena()" class="emcontent">
+      <h1>Cambio de Correo electrónico</h1>
+      <p>Para cambiar su e-mail debe ingresar su contraseña</p>
+      <input formControlName="campo" id="input" type="text">
+      <div class="btn-cerrar">
+         <button class="primary btn update-profile" type="submit">Aceptar</button>
+         <button (click)="cerrarVentana()">Cerrar</button>
+      </div>
+   </form>
 </div>
