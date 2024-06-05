@@ -229,11 +229,6 @@ body {
        display: none;
    }
 }
-
-.iconolog {
-   height: 30px;
-   width: 30px;
-}
  
 #mine {
    display: flex;
@@ -273,4 +268,13 @@ body {
 }
 #mine ul li:hover > ul {
   display: block;
+}
+
+.iconolog {
+   border-radius: 50%;
+   height: 40px;
+   width: 40px;
+   object-fit: cover;
+   border: 2px solid #ececec;
+   cursor: pointer;
 }

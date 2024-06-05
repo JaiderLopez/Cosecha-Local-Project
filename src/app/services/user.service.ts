@@ -4,7 +4,9 @@ import { EmailAuthProvider, getAuth, reauthenticateWithCredential, updateEmail, 
 import { Observable, from } from "rxjs";
 import { UserInterface } from "../user"
 import { Firestore, collection, collectionData, doc, setDoc, getDoc } from '@angular/fire/firestore';
-import { updateDoc } from "firebase/firestore";
+import { addDoc, updateDoc } from "firebase/firestore";
+import * as uuid from 'uuid';
+import { response } from "express";
 @Injectable({
     providedIn: 'root'
 })
@@ -18,11 +20,21 @@ export class UserService {
     currentUserSig = signal<UserInterface | null | undefined>(undefined)
 
     toRegister(name: string, email: string, password: string): Observable<void> {
+        var id;
+
+        //fire auth
         const promise = createUserWithEmailAndPassword(this.auth, email, password)
             .then(response => {
+                id = response.user.uid
                 updateProfile(response.user, {displayName: name});
                 setDoc(doc(collection(this.firestore, "usuarios"),response.user.uid), {
                     ID : response.user.uid, username: name, email: email, password: password
+                });
+
+                //firestore        
+                const ref = collection(this.firestore, 'usuarios');
+                setDoc(doc(ref, id), {
+                    ID: id, username: name, email: email, password: password, photoURL: "", sexo: "", info: "", fecha: "", telefono: ""
                 });
             });
         return from(promise)
@@ -84,8 +96,6 @@ export class UserService {
         }
 
         //update en firestore
-        
-        console.log(user.photoURL);
         const ref = doc(this.firestore, "usuarios", user.ID);
         if(user.username != ""){await updateDoc(ref, {username: user.username});}
         if(user.email != ""){await updateDoc(ref, {email: user.email});}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from '../../../../services/user.service';
 
 @Component({
   selector: 'app-list',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './list.component.css'
 })
 export class ListComponent {
-
+ constructor (private userService: UserService) {}
 }

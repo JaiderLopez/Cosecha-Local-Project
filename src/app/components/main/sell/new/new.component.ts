@@ -13,6 +13,7 @@ import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import * as uuid from 'uuid';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { UserService } from '../../../../services/user.service';
 
 
 export interface Categoria {
@@ -46,7 +47,7 @@ export class NewComponent implements OnInit {
   loading: boolean;
   archivoCapturado: any;
 
-  constructor(private productoService: ProductoService, private sanitizer: DomSanitizer, private router: Router, private route: ActivatedRoute,) {}
+  constructor(private productoService: ProductoService, private router: Router, private route: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit() {
     this.filteredOptions = this.applyForm.valueChanges.pipe(
@@ -73,10 +74,11 @@ export class NewComponent implements OnInit {
     const storage = getStorage();
     const id = uuid.v4();
     const storageRef = ref(storage, id + '.' + this.archivoCapturado.type.substring(6));
+    const autor = this.userService.currentUserSig().ID
     
     if (form.imagen == null) {
       const obj = {"ID": id, "nombre": form.nombre, "categoria": form.categoria,
-          "precio": form.precio, "inventario": form.inventario, "descripcion": form.descripcion, "imagen": ""
+          "precio": form.precio, "inventario": form.inventario, "descripcion": form.descripcion, "imagen": "", "autor": autor
         };
         this.productoService.addProduct(obj);
     } else {
@@ -85,7 +87,7 @@ export class NewComponent implements OnInit {
       }).then(() => {
         getDownloadURL(ref(storage, id + '.' + this.archivoCapturado.type.substring(6))).then((url) => {
           const obj = {"ID": id, "nombre": form.nombre, "categoria": form.categoria,
-            "precio": form.precio, "inventario": form.inventario, "descripcion": form.descripcion, "imagen": url
+            "precio": form.precio, "inventario": form.inventario, "descripcion": form.descripcion, "imagen": url, "autor": autor
           };
           this.productoService.addProduct(obj);
         }).catch((err) => {

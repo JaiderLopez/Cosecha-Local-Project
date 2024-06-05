@@ -26,6 +26,9 @@ export class NavComponent {
           telefono: user.phoneNumber!,
           ID: user.uid!
         });
+        this.userService.getByID(this.userService.currentUserSig().ID).then((us) => {
+          if(us.photoURL != ""){document.getElementById("iconolog").setAttribute("src", us.photoURL)}
+        })
       } else {
         this.userService.currentUserSig.set(null);
       }

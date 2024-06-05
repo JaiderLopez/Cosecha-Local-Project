@@ -95,15 +95,15 @@ export class ProfileComponent {
           console.error(err);
         })
       })
+      location.reload();
     } else {
       if(form.email != ""){
         this.userService.update(obj,this.contraseña);
       }else{
         this.userService.update(obj,"");
       }
+      location.reload();
     }
-    
-    location.reload();
   }
   
   capturar(event): any{
