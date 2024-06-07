@@ -4,22 +4,23 @@
         <thead>
             <tr>
                 <th>Producto</th>
-                <th class="section">Descripción</th>
                 <th class="section">Precio</th>
+                <th class="section">Inventario</th>
+                <th class="section">categoría</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Producto 1</td>
-                <td class="section">Descripción del producto 1</td>
-                <td class="section">$100</td>
+            <tr *ngFor="let producto of productos; let i = index;trackBy:trackBy">
+                <td>{{ producto.nombre }}</td>
+                <td class="section">${{ producto.precio }}</td>
+                <td class="section">${{ producto.inventario }}</td>
+                <td class="section">{{ producto.categoria }}</td>
                 <td id="acciones">
-                    <button>Editar</button>
-                    <button>Eliminar</button>
+                    <button [routerLink]="['/home/sell/edit-product/', producto.id]">Editar</button>
+                    <button  (click)="eliminar(producto.id)">Eliminar</button>
                 </td>
             </tr>
-            <!-- Más productos -->
         </tbody>
     </table>
 </section>

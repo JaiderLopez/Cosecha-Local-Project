@@ -1,20 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { MatAutocomplete } from "@angular/material/autocomplete"
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AsyncPipe, NgIf } from "@angular/common";
 import data from '../../../../../categorias.json';
-import { FormControl, FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
-import { AsyncPipe, NgIf } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import { Producto } from '../../../../producto';
-import { ProductoService } from '../../../../services/producto.service';
-import { Router } from '@angular/router';
-import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import * as uuid from 'uuid';
-import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { UserService } from '../../../../services/user.service';
-
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { UserService } from "../../../../services/user.service";
+import { ProductoService } from "../../../../services/producto.service";
 
 export interface Categoria {
   id: number;
@@ -22,15 +19,22 @@ export interface Categoria {
 }
 
 @Component({
-  selector: 'app-new',
-  standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, 
-    ReactiveFormsModule, AsyncPipe, NgIf, RouterLink
-  ],
-  templateUrl: './new.component.html',
-  styleUrl: './new.component.css'
-})
-export class NewComponent implements OnInit {
+    selector: 'app-new',
+    standalone: true,
+    imports: [FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, RouterLink, MatAutocomplete,
+      AsyncPipe, MatAutocompleteModule, NgIf
+    ],
+    templateUrl: './edit-product.component.html',
+    styleUrl: './edit-product.component.css'
+  })
+
+export class EditProductComponent {
+  loading= false;
+  filteredOptions: Observable<Categoria[]>;
+  options: Categoria[] = data;
+  uploadSuccess: boolean;
+  archivoCapturado: any;
+  
   applyForm = new FormGroup({
     nombre: new FormControl(''),
     descripcion: new FormControl(''),
@@ -39,15 +43,8 @@ export class NewComponent implements OnInit {
     categoria: new FormControl<string>(''),
     imagen: new FormControl<File>(null)
   });
-  options: Categoria[] = data;
-  filteredOptions: Observable<Categoria[]>;
-  producto: Producto;
-  percentDone: number;
-  uploadSuccess: boolean;
-  loading: boolean;
-  archivoCapturado: any;
-
-  constructor(private productoService: ProductoService, private router: Router, private route: ActivatedRoute, private userService: UserService) {}
+    
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute, private productoService: ProductoService) {}
 
   ngOnInit() {
     this.filteredOptions = this.applyForm.valueChanges.pipe(
@@ -58,14 +55,8 @@ export class NewComponent implements OnInit {
       }),
     );
   }
-
-  displayFn(categoria: Categoria): string {
-    return categoria && categoria.name ? categoria.name : '';
-  }
-
   private _filter(name: string): Categoria[] {
     const filterValue = name.toLowerCase();
-
     return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
 
@@ -73,7 +64,8 @@ export class NewComponent implements OnInit {
     this.loading = true;
     const form = this.applyForm.value;
     const storage = getStorage();
-    const id = uuid.v4();
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id)
     const storageRef = ref(storage, id + '.' + this.archivoCapturado.type.substring(6));
     const autor = this.userService.currentUserSig().ID
     
@@ -81,7 +73,7 @@ export class NewComponent implements OnInit {
       const obj = {"ID": id, "nombre": form.nombre, "categoria": form.categoria,
           "precio": form.precio, "inventario": form.inventario, "descripcion": form.descripcion, "imagen": "", "autor": autor
         };
-        this.productoService.addProduct(obj).then(() => {this.router.navigate(['/home/sell/list'], { relativeTo: this.route });})
+        this.productoService.updateProducto(obj).then(() => {this.router.navigate(['/home/sell/list'], { relativeTo: this.route });})
     } else {
       uploadBytes(storageRef, this.archivoCapturado).then((snapshot) => {
         console.log('Uploaded a blob or file!');
@@ -90,13 +82,19 @@ export class NewComponent implements OnInit {
           const obj = {"ID": id, "nombre": form.nombre, "categoria": form.categoria,
             "precio": form.precio, "inventario": form.inventario, "descripcion": form.descripcion, "imagen": url, "autor": autor
           };
-          this.productoService.addProduct(obj).then(()=>{this.router.navigate(['/home/sell/list'], { relativeTo: this.route });});
+          this.productoService.updateProducto(obj).then(()=>{this.router.navigate(['/home/sell/list'], { relativeTo: this.route });});
         }).catch((err) => {
           console.error(err);
+          this.loading = false;
         })
       })
     }
     this.loading = false;
+  }
+
+
+  displayFn(categoria: Categoria): string {
+    return categoria && categoria.name ? categoria.name : '';
   }
   capturar(event): any{
     this.loading = true;
@@ -104,5 +102,4 @@ export class NewComponent implements OnInit {
     console.log(this.archivoCapturado.type.substring(6));
     this.loading = false;
   }
-
 }

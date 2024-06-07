@@ -74,7 +74,7 @@ export class UserService {
             photoAux = user.photoURL;
         }
 
-        updateProfile(auth.currentUser, {
+        await updateProfile(auth.currentUser, {
             displayName: nameAux, photoURL: user.photoURL
           }).then(() => {
 
@@ -82,7 +82,7 @@ export class UserService {
             console.error(error);
         });
 
-        if (password !== ""){
+        if (password != ""){
             await signInWithEmailAndPassword(auth, auth.currentUser.email, password).then(() => {
                 updateEmail(auth.currentUser, user.email).then(() => {
                     console.log("email confirmado");

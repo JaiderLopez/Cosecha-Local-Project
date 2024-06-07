@@ -13,6 +13,7 @@ import { OrdersComponent } from './components/main/sell/orders/orders.component'
 import { NewComponent } from './components/main/sell/new/new.component';
 import { DevTestComponent } from './dev-test/dev-test.component';
 import { authGuard } from './guards/auth.guard';
+import { EditProductComponent } from './components/main/sell/edit-product/edit-product.component';
 export const routes: Routes = [
 
    {path: 'home', component: HomeComponent, title: 'Home',
@@ -21,9 +22,10 @@ export const routes: Routes = [
          {path: 'buy', component: BuyComponent, title: 'Buy'},
          {path: 'sell', component: SellComponent, title: 'Sell', canActivate: [authGuard], 
          children: [
-            {path: 'list', component: ListComponent, title: 'List'}, 
-            {path: 'orders', component: OrdersComponent, title: 'Orders'}, 
-            {path: 'new', component: NewComponent, title: 'New Product'}, 
+            {path: 'list', component: ListComponent, title: 'List', canActivate: [authGuard],},
+            {path: 'edit-product/:id', component: EditProductComponent, title: 'edit-component', canActivate: [authGuard]},
+            {path: 'orders', component: OrdersComponent, title: 'Orders', canActivate: [authGuard],}, 
+            {path: 'new', component: NewComponent, title: 'New Product', canActivate: [authGuard],}, 
             ]
          },
          {path: 'investors', component: InvestorsComponent, title: 'Inversores'},
